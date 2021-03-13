@@ -1,0 +1,11 @@
+.visibility-enter,
+.visibility-leave-to {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+}
+
+.visibility-enter-active,
+.visibility-leave-active {
+  transition: all 0.3s;
+}
