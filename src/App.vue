@@ -18,7 +18,7 @@
           />
         </div>
         <button @click="showMore" class="show-more-btn">
-          Показать еще 5 билетов!
+          {{ LoadMoreBtnTitle }}
         </button>
       </div>
       <transition name="visibility">
@@ -84,6 +84,11 @@ export default {
       }
 
       return filteredTickets;
+    },
+    LoadMoreBtnTitle() {
+      return this.tickets.length
+        ? "Показать еще 5 билетов!"
+        : "Показать 5 билетов!";
     }
   },
   async beforeMount() {
@@ -117,7 +122,7 @@ export default {
           );
         }
       } catch (error) {
-        this.httpErrorMessage = error.message;
+        this.errorHandler(error);
       } finally {
         this.isLoading = false;
       }
@@ -139,14 +144,17 @@ export default {
           );
         }
       } catch (error) {
-        this.httpErrorMessage = error.message;
-
-        setTimeout(() => {
-          this.httpErrorMessage = "";
-        }, 5000);
+        this.errorHandler(error);
       } finally {
         this.isLoading = false;
       }
+    },
+    errorHandler(error) {
+      this.httpErrorMessage = error.message;
+
+      setTimeout(() => {
+        this.httpErrorMessage = "";
+      }, 5000);
     }
   }
 };

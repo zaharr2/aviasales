@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import UiCheckbox from "@/components/ui/UiCheckbox";
-
 export default {
   name: "Filters",
   components: {
-    UiCheckbox
+    UiCheckbox: () => import("@/components/ui/UiCheckbox")
   },
   data: () => ({
     filters: [

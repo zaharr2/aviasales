@@ -24,12 +24,10 @@
 </template>
 
 <script>
-import TicketInfo from "@/components/ticket/TicketInfo";
-
 export default {
   name: "Ticket",
   components: {
-    TicketInfo
+    TicketInfo: () => import("@/components/ticket/TicketInfo")
   },
   props: {
     ticket: {
