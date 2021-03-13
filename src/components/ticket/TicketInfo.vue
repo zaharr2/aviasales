@@ -1,7 +1,7 @@
 <template>
   <div class="ticket-info">
-    <div class="ticket-info__top">{{ data.top }}</div>
-    <div class="ticket-info__bott">{{ data.bott }}</div>
+    <span class="ticket-info__top">{{ data.top }}</span>
+    <span class="ticket-info__bott">{{ data.bott }}</span>
   </div>
 </template>
 

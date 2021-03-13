@@ -7,7 +7,7 @@
       :class="{ 'sorting__item--checked': sort.checked }"
       class="sorting__item"
     >
-      {{ sort.label }}
+      <span>{{ sort.label }}</span>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="ticket">
     <div class="ticket__info-wrap">
-      <div class="ticket__price">{{ ticket.price | addSpaces }} P</div>
+      <p class="ticket__price">{{ ticket.price | addSpaces }} P</p>
       <div class="ticket__img-wrap">
         <img
           class="ticket__img"

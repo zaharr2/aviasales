@@ -1,8 +1,6 @@
 <template>
   <div class="filters">
-    <div class="filters__title">
-      <span>Количество пересадок</span>
-    </div>
+    <h4 class="filters__title">Количество пересадок</h4>
     <UiCheckbox
       v-for="(filter, index) in filters"
       :key="filter.label"

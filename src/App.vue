@@ -34,7 +34,6 @@
 
 <script>
 import Ticket from "@/utils/ticket";
-import sortby from "lodash.sortby";
 
 export default {
   name: "App",
@@ -80,7 +79,9 @@ export default {
             break;
         }
 
-        filteredTickets = sortby(filteredTickets, sortByArg);
+        filteredTickets = filteredTickets
+          .map(el => el)
+          .sort((a, b) => a[sortByArg] - b[sortByArg]);
       }
 
       return filteredTickets;
@@ -136,7 +137,7 @@ export default {
 
         if (response.status === 200) {
           const { tickets, stop } = await response.json();
-          this.tickets = tickets.map(ticket => new Ticket(ticket));
+          this.tickets.push(...tickets.map(ticket => new Ticket(ticket)));
           this.isAllTicketsLoaded = stop;
         } else {
           throw new Error(
